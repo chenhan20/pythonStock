@@ -1,0 +1,2 @@
+# pythonStock
+練習
