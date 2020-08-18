@@ -13,4 +13,5 @@
 ```
     pip install requests
     pip install pandas
+    pip install --upgrade ipython jupyter
 ```
