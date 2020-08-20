@@ -3,11 +3,23 @@ import datetime
 import time
 
 now = datetime.datetime.now()
-date = now
 
-fail = True
 
-while fail:
-    fail = three.getThree(date)
-    date = date - datetime.timedelta(days=1)
-    time.sleep(3) # 五秒內只能call三次 否則會被鎖
+def getNewThree():
+    fail = True
+    date = now
+    while fail:
+        fail = three.getThree(date)
+        date = date - datetime.timedelta(days=1)
+        time.sleep(3) # 五秒內只能call三次 否則會被鎖
+
+def getDateThree(date):
+    fail = True
+    while fail:
+        three.getThree(date)
+        date = date - datetime.timedelta(days=1)
+        time.sleep(3) # 五秒內只能call三次 否則會被鎖
+
+
+# getDateThree(datetime.datetime(2020,7,31))
+getNewThree()
