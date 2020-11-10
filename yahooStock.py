@@ -32,9 +32,17 @@ def downloadStock(symbolList):
     # for stock in data:
     #     print(stock)
 
+def getActivesStockList():
+    # 貼上連結
+    url = 'https://finance.yahoo.com/portfolio/p_2/view'
+    data = pd.read_html(url)[0]
+    stk_list = data.Symbol
+    print(stk_list)
+
 
 
 # getStockList(defaultStockList)
-downloadStock(defaultStockList)
+# downloadStock(defaultStockList)
+getActivesStockList()
 
 
