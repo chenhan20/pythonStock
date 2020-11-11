@@ -49,7 +49,7 @@ def getThree(date):
 def getThreeBuyDetail():
     # print('日期:'+ date.strftime("%Y%m%d"))
 
-    url = 'https://www.twse.com.tw/fund/T86?response=json&date=20201111&selectType=ALL&_=1605083675797'
+    url = 'https://www.twse.com.tw/fund/T86?response=json&date=20201111&selectType=ALL'
 
     res = requests.get(url, headers=headers)
 
