@@ -30,8 +30,8 @@ def getThree(date):
     url = 'https://www.twse.com.tw/fund/BFI82U?response=json&dayDate=' + date.strftime("%Y%m%d") + '&type=day'
 
     res = requests.get(url, headers=headers)
-
     stockData=json.loads(res.text)
+    print(stockData)
 
     if stockData['stat']=='OK':
         converter(stockData['data'])
@@ -46,5 +46,27 @@ def getThree(date):
     
     return fail
 
+def getThreeBuyDetail():
+    # print('日期:'+ date.strftime("%Y%m%d"))
 
+    url = 'https://www.twse.com.tw/fund/T86?response=json&date=20201111&selectType=ALL&_=1605083675797'
 
+    res = requests.get(url, headers=headers)
+
+    stockData=json.loads(res.text)
+
+    if stockData['stat']=='OK':
+        print(stockData['fields'])
+        # converter(stockData['data'])
+        # df = pd.DataFrame(stockData['data'],columns=stockData['fields'])
+        # pd.set_option('display.unicode.ambiguous_as_wide', True)
+        # pd.set_option('display.unicode.east_asian_width', True)
+        # print(df)
+        fail = False
+    else:
+        print(stockData['stat'])
+        fail = True
+    
+    return fail
+
+getThreeBuyDetail()

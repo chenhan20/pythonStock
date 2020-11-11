@@ -27,4 +27,4 @@ def getYahooData():
 
 # getDateThree(datetime.datetime(2020,7,31))
 # getNewThree()
-getYahooData()
+# getYahooData()

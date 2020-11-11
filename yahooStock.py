@@ -34,15 +34,18 @@ def downloadStock(symbolList):
 
 def getActivesStockList():
     # 貼上連結
-    url = 'https://finance.yahoo.com/portfolio/p_2/view'
+    url = 'https://finance.yahoo.com/most-active?offset=0&count=30'
     data = pd.read_html(url)[0]
     stk_list = data.Symbol
+    # print(pd.DataFrame(data))
     print(stk_list)
+
+
 
 
 
 # getStockList(defaultStockList)
 # downloadStock(defaultStockList)
-getActivesStockList()
+# getActivesStockList()
 
 
