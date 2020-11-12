@@ -36,6 +36,7 @@ def getThree(date):
         pd.set_option('display.unicode.ambiguous_as_wide', True)
         pd.set_option('display.unicode.east_asian_width', True)
         print(stockData['title'])
+        print('============================================================')
         print(df)
         fail = False
     else:
@@ -53,6 +54,7 @@ def getThreeBuyDetail(date, stockNum):
 
     if stockData['stat']=='OK':
         print(stockData['title'])
+        print('============================================================')
         converter(stockData['data'])
         df = pd.DataFrame(stockData['data'],columns=stockData['fields'])
         pd.set_option('display.unicode.ambiguous_as_wide', True)

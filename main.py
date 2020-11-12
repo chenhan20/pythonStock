@@ -35,6 +35,6 @@ def getYahooData():
     print(stockData.info)
 
 # getDateThree(datetime.datetime(2020,7,31))
-# getNewThree()
+getNewThree()
 # getYahooData()
-getStockDetail()
+# getStockDetail()
