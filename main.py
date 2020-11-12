@@ -21,6 +21,14 @@ def getDateThree(date):
         date = date - datetime.timedelta(days=1)
         time.sleep(3) # 五秒內只能call三次 否則會被鎖
 
+def getStockDetail():
+    stockNumList = ['2330','2454']
+
+    for stockNum in stockNumList:
+        three.getThreeBuyDetail(now, stockNum)
+        time.sleep(3) # 五秒內只能call三次 否則會被鎖
+
+
 def getYahooData():
     stockData = ys.getStockInfo("MSFT")
     print(stockData.info)
@@ -28,3 +36,4 @@ def getYahooData():
 # getDateThree(datetime.datetime(2020,7,31))
 # getNewThree()
 # getYahooData()
+getStockDetail()

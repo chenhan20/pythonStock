@@ -46,21 +46,19 @@ def getThree(date):
     
     return fail
 
-def getThreeBuyDetail(date):
-    # print('日期:'+ date.strftime("%Y%m%d"))
-
-    url = 'https://www.twse.com.tw/fund/T86?response=json&date=' + date.strftime("%Y%m%d") + '&selectType=ALL'
+def getThreeBuyDetail(date, stockNum):
+    # url = 'https://www.twse.com.tw/fund/T86?response=json&date=20201111&selectType=ALL'
+    url = 'https://www.twse.com.tw/exchangeReport/STOCK_DAY?date='+date.strftime("%Y%m%d")+'&stockNo=' + stockNum
 
     res = requests.get(url, headers=headers)
-
     stockData=json.loads(res.text)
 
     if stockData['stat']=='OK':
-        # print(stockData['fields'])
         converter(stockData['data'])
         df = pd.DataFrame(stockData['data'],columns=stockData['fields'])
         pd.set_option('display.unicode.ambiguous_as_wide', True)
         pd.set_option('display.unicode.east_asian_width', True)
+        print(stockData['title'])
         print(df)
         fail = False
     else:
@@ -69,4 +67,9 @@ def getThreeBuyDetail(date):
     
     return fail
 
-getThreeBuyDetail()
+
+def test():
+    stockList = ['2330','2337']
+    for i in stockList:
+        print(i)
+
