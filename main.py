@@ -22,7 +22,7 @@ def getDateThree(date):
         time.sleep(3) # 五秒內只能call三次 否則會被鎖
 
 def getStockDetail():
-    stockNumList = ['2330','2454']
+    stockNumList = ['2330','2454','2337','2303']
 
     for stockNum in stockNumList:
         data = three.getThreeBuyDetail(now, stockNum)

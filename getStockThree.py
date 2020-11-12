@@ -25,19 +25,17 @@ def converter(data):
             data[i][d] = result
 
 def getThree(date):
-    print('日期:'+ date.strftime("%Y%m%d"))
-
     url = 'https://www.twse.com.tw/fund/BFI82U?response=json&dayDate=' + date.strftime("%Y%m%d") + '&type=day'
 
     res = requests.get(url, headers=headers)
     stockData=json.loads(res.text)
-    print(stockData)
 
     if stockData['stat']=='OK':
         converter(stockData['data'])
         df = pd.DataFrame(stockData['data'],columns=stockData['fields'])
         pd.set_option('display.unicode.ambiguous_as_wide', True)
         pd.set_option('display.unicode.east_asian_width', True)
+        print(stockData['title'])
         print(df)
         fail = False
     else:
@@ -54,6 +52,7 @@ def getThreeBuyDetail(date, stockNum):
     stockData=json.loads(res.text)
 
     if stockData['stat']=='OK':
+        print(stockData['title'])
         converter(stockData['data'])
         df = pd.DataFrame(stockData['data'],columns=stockData['fields'])
         pd.set_option('display.unicode.ambiguous_as_wide', True)
