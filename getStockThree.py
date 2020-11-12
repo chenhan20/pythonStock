@@ -58,14 +58,10 @@ def getThreeBuyDetail(date, stockNum):
         df = pd.DataFrame(stockData['data'],columns=stockData['fields'])
         pd.set_option('display.unicode.ambiguous_as_wide', True)
         pd.set_option('display.unicode.east_asian_width', True)
-        print(stockData['title'])
-        print(df)
-        fail = False
+        return df
     else:
         print(stockData['stat'])
-        fail = True
-    
-    return fail
+        return pd.DataFrame()
 
 
 def test():

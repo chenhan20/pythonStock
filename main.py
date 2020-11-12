@@ -25,7 +25,8 @@ def getStockDetail():
     stockNumList = ['2330','2454']
 
     for stockNum in stockNumList:
-        three.getThreeBuyDetail(now, stockNum)
+        data = three.getThreeBuyDetail(now, stockNum)
+        print(data)
         time.sleep(3) # 五秒內只能call三次 否則會被鎖
 
 
