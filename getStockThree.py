@@ -1,6 +1,7 @@
 import pandas as pd
 import json
 import requests 
+import time 
 
 # 偽瀏覽器
 headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
@@ -53,20 +54,27 @@ def getThreeBuyDetail(date, stockNum):
     stockData=json.loads(res.text)
 
     if stockData['stat']=='OK':
-        print(stockData['title'])
-        print('============================================================')
         converter(stockData['data'])
-        df = pd.DataFrame(stockData['data'],columns=stockData['fields'])
-        pd.set_option('display.unicode.ambiguous_as_wide', True)
-        pd.set_option('display.unicode.east_asian_width', True)
-        return df
+        # print(stockData['title'])
+        # print('============================================================')
+        # df = pd.DataFrame(stockData['data'],columns=stockData['fields'])
+        # pd.set_option('display.unicode.ambiguous_as_wide', True)
+        # pd.set_option('display.unicode.east_asian_width', True)
+        # print(df)
+        return stockData
     else:
         print(stockData['stat'])
-        return pd.DataFrame()
+        return []
 
 
 def test():
-    stockList = ['2330','2337']
+    tStart = time.time()#計時開始
+
+    stockList = ['2330','2337','2330','2337','2330','2337','2330','2337','2330','2337','2330','2337','2330','2337','2330','2337','2330','2337','2330','2337','2330','2337','2330','2337','2330','2337','2330','2337','2330','2337','2330','2337','2330','2337','2330','2337','2330','2337','2330','2337']
     for i in stockList:
         print(i)
 
+    print("抓取時間：%f 秒" % (time.time() - tStart))
+
+
+test()
