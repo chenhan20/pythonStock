@@ -77,4 +77,4 @@ def test():
     print("抓取時間：%f 秒" % (time.time() - tStart))
 
 
-test()
+# test()
